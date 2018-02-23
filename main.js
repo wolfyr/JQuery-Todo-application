@@ -7,12 +7,14 @@ $(document).ready(function(){
     function addItemToList (){
     var newItem = $('#inputField').val();
 
+    if($('#inputField').val() !== ''){
     $('#thingsTodo').append('<div class="section">'+
                             '<li id="listItem" class="blue-text text-darken-2 tooltip">' + newItem + '<span class="tooltiptext">Click to edit</span></li>'+
                             '<i class="small material-icons deleteThisItem">delete</i>'+
                             '<div>'+
                             '<div class="divider"></div>');
     $('#inputField').val("");
+  }
   }
 
   function deleteItem(){
