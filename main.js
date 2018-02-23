@@ -4,7 +4,7 @@ $(document).ready(function(){
  $('#thingsTodo').on('click', '.deleteThisItem', deleteItem);
  $('#thingsTodo').on('click', '#listItem', editItem);
 
-    function addItemToList (){
+function addItemToList (){
       var newItem = $('#inputField').val();
 
       if($('#inputField').val() !== ''){
@@ -19,14 +19,20 @@ $(document).ready(function(){
      }
    }
 
-  function deleteItem(){
+function deleteItem(){
     $(this).closest('.section').remove();
     $(this).closest('.divider').remove();
   }
 
-  function editItem(){
+function editItem(){
     var newTodoInput = prompt("Please edit your todo item");
-    $(this).text(newTodoInput);
+
+     if(newTodoInput !== ""){
+       $(this).text(newTodoInput);
+     }else{
+       alert("Please make sure you enter something before clicking the button");
+     }
+
 
   }
 
