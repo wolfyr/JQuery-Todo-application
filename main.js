@@ -14,6 +14,8 @@ $(document).ready(function(){
                             '<div>'+
                             '<div class="divider"></div>');
     $('#inputField').val("");
+  }else{
+    alert("Please make sure you enter something before clicking the button");
   }
   }
 
