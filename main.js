@@ -27,7 +27,8 @@ function deleteItem(){
 function editItem(){
     var newTodoInput = prompt("Please edit your todo item");
 
-     if(newTodoInput !== ""){
+
+     if(typeof newTodoInput !== 'object' && ""){
        $(this).text(newTodoInput);
      }else{
        alert("Please make sure you enter something before clicking the button");
