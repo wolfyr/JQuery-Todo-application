@@ -28,8 +28,11 @@ function editItem(){
     var newTodoInput = prompt("Please edit your todo item");
 
 
-     if(typeof newTodoInput !== 'object' && ""){
-       $(this).text(newTodoInput);
+     if(typeof newTodoInput !== 'object'){
+       if(newTodoInput !== ""){
+         $(this).text(newTodoInput);
+       }
+
      }else{
        alert("Please make sure you enter something before clicking the button");
      }
