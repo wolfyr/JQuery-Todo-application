@@ -11,7 +11,6 @@ function addItemToList (){
         $('#thingsTodo').append('<div class="section">'+
                             '<li id="listItem" class="blue-text text-darken-2 tooltip">' + newItem + '<span class="tooltiptext">Click to edit</span></li>'+
                             '<i class="small material-icons deleteThisItem">delete</i>'+
-                            '<div>'+
                             '<div class="divider"></div>');
         $('#inputField').val("");
         }else{
@@ -30,7 +29,8 @@ function editItem(){
 
      if(typeof newTodoInput !== 'object'){
        if(newTodoInput !== ""){
-         $(this).text(newTodoInput);
+
+         $(this).replaceWith('<li id="listItem" class="blue-text text-darken-2 tooltip">' + newTodoInput + '<span class="tooltiptext">Click to edit</span></li>');
        }
 
      }else{
