@@ -5,11 +5,11 @@ $(document).ready(function(){
  $('#thingsTodo').on('click', '#listItem', editItem);
 
 function addItemToList (){
-      var newItem = $('#inputField').val();
+      var newItem = {value: $('#inputField').val()};
 
-      if($('#inputField').val() !== ''){
+      if(newItem.value !== ''){
         $('#thingsTodo').append('<div class="section">'+
-                            '<li id="listItem" class="blue-text text-darken-2 tooltip">' + newItem + '<span class="tooltiptext">Click to edit</span></li>'+
+                            '<li id="listItem" class="blue-text text-darken-2 tooltip">' + newItem.value + '<span class="tooltiptext">Click to edit</span></li>'+
                             '<i class="small material-icons deleteThisItem">delete</i>'+
                             '<div class="divider"></div>');
         $('#inputField').val("");
@@ -24,13 +24,13 @@ function deleteItem(){
   }
 
 function editItem(){
-    var newTodoInput = prompt("Please edit your todo item");
+    var newTodoInput = {newValue: prompt("Please edit your todo item")};
 
 
-     if(typeof newTodoInput !== 'object'){
-       if(newTodoInput !== ""){
+     if(typeof newTodoInput.newValue !== 'object'){
+       if(newTodoInput.newValue !== ""){
 
-         $(this).replaceWith('<li id="listItem" class="blue-text text-darken-2 tooltip">' + newTodoInput + '<span class="tooltiptext">Click to edit</span></li>');
+         $(this).replaceWith('<li id="listItem" class="blue-text text-darken-2 tooltip">' + newTodoInput.newValue + '<span class="tooltiptext">Click to edit</span></li>');
        }
 
      }else{
