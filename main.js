@@ -19,6 +19,7 @@ $(document).ready(function(){
  $('#addItem').on('click', addItemToList);
  $('#thingsTodo').on('click', '.deleteThisItem', deleteItem);
  $('#thingsTodo').on('click', '#listItem', editItem);
+ $('#clearList').on('click', clearFullList);
 
 function addItemToList (){
       var newItem = {value: $('#inputField').val()};
@@ -61,3 +62,8 @@ function editItem(){
   }
 
 });
+
+function clearFullList(){
+  localStorage.removeItem("todoData");
+  location.reload();
+}
