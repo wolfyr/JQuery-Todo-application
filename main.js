@@ -1,7 +1,11 @@
 $(document).ready(function(){
   var data = JSON.parse(localStorage.getItem("todoData"));
   var items = [];
-  console.log(data);
+
+  $('#addItem').on('click', addItemToList);
+  $('#thingsTodo').on('click', '.deleteThisItem', deleteItem);
+  $('#thingsTodo').on('click', '#listItem', editItem);
+  $('#clearList').on('click', clearFullList);
 
 
   if(data != null){
@@ -18,10 +22,7 @@ $(document).ready(function(){
    }
   }
 
- $('#addItem').on('click', addItemToList);
- $('#thingsTodo').on('click', '.deleteThisItem', deleteItem);
- $('#thingsTodo').on('click', '#listItem', editItem);
- $('#clearList').on('click', clearFullList);
+
 
 function clearFullList(){
    localStorage.removeItem("todoData");
