@@ -3,17 +3,18 @@ $(document).ready(function(){
   var items = [];
   console.log(data);
 
+  if(data != null){
+    for (var i = 0; i < data.length; i++){
+      items.push(data[i]);
 
-  for (var i = 0; i < data.length; i++){
-    items.push(data[i]);
+      localStorage.setItem("todoData", JSON.stringify(items));
 
-    localStorage.setItem("todoData", JSON.stringify(items));
-
-    $('#thingsTodo').append('<div class="section">'+
-                        '<li id="listItem" class="blue-text text-darken-2 tooltip">' + data[i] + '<span class="tooltiptext">Click to edit</span></li>'+
-                        '<i class="small material-icons deleteThisItem">delete</i>'+
-                        '<div class="divider"></div>');
- }
+      $('#thingsTodo').append('<div class="section">'+
+                          '<li id="listItem" class="blue-text text-darken-2 tooltip">' + data[i] + '<span class="tooltiptext">Click to edit</span></li>'+
+                          '<i class="small material-icons deleteThisItem">delete</i>'+
+                          '<div class="divider"></div>');
+   }
+  }
 
  $('#addItem').on('click', addItemToList);
  $('#thingsTodo').on('click', '.deleteThisItem', deleteItem);
