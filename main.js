@@ -3,6 +3,7 @@ $(document).ready(function(){
   var items = [];
   console.log(data);
 
+
   if(data != null){
     for (var i = 0; i < data.length; i++){
       items.push(data[i]);
@@ -10,9 +11,10 @@ $(document).ready(function(){
       localStorage.setItem("todoData", JSON.stringify(items));
 
       $('#thingsTodo').append('<div class="section">'+
-                          '<li id="listItem" class="blue-text text-darken-2 tooltip">' + data[i] + '<span class="tooltiptext">Click to edit</span></li>'+
-                          '<i class="small material-icons deleteThisItem">delete</i>'+
-                          '<div class="divider"></div>');
+                                '<li id="listItem" class="blue-text text-darken-2 tooltip">' + data[i] +
+                                  '<span class="tooltiptext">Click to edit</span></li>'+
+                                '<i class="small material-icons deleteThisItem">delete</i>'+
+                              '<div class="divider"></div>');
    }
   }
 
@@ -42,10 +44,22 @@ function addItemToList (){
 function deleteItem(){
     $(this).closest('.section').remove();
     $(this).closest('.divider').remove();
+    var x = $(this).parent().text();
+
+    for (var i = 0; i < data.length; i++){
+      if(x == data[i]+"Click to editdelete"){
+        data.splice(i, 1)
+
+
+        localStorage.setItem("todoData", JSON.stringify(data));
+      }
+    }
+    console.log(data);
   }
 
 function editItem(){
     var newTodoInput = {newValue: prompt("Please edit your todo item")};
+
     items.push(newTodoInput.newValue);
 
      if(typeof newTodoInput.newValue !== 'object'){
