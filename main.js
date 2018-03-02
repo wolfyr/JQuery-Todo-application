@@ -1,6 +1,7 @@
 $(document).ready(function(){
   var data = JSON.parse(localStorage.getItem("todoData"));
   var items = [];
+  console.log(data);
 
   $('#addItem').on('click', addItemToList);
   $('#thingsTodo').on('click', '.deleteThisItem', deleteItem);
@@ -52,10 +53,11 @@ function deleteItem(){
     $(this).closest('.divider').remove();
     var x = $(this).parent().text();
 
-    for (var i = 0; i < data.length; i++){
-      if(x == data[i]+"Click to editdelete"){
-        data.splice(i, 1)
-        localStorage.setItem("todoData", JSON.stringify(data));
+    for (var i = 0; i < items.length; i++){
+      if(x == items[i]+"Click to editdelete"){
+        items.splice(i, 1)
+        localStorage.setItem("todoData", JSON.stringify(items));
+        console.log(data);
       }
     }
   }
