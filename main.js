@@ -23,6 +23,11 @@ $(document).ready(function(){
  $('#thingsTodo').on('click', '#listItem', editItem);
  $('#clearList').on('click', clearFullList);
 
+function clearFullList(){
+   localStorage.removeItem("todoData");
+   location.reload();
+ }
+
 function addItemToList (){
       var newItem = {value: $('#inputField').val()};
       items.push(newItem.value);
@@ -49,12 +54,9 @@ function deleteItem(){
     for (var i = 0; i < data.length; i++){
       if(x == data[i]+"Click to editdelete"){
         data.splice(i, 1)
-
-
         localStorage.setItem("todoData", JSON.stringify(data));
       }
     }
-    console.log(data);
   }
 
 function editItem(){
@@ -72,12 +74,6 @@ function editItem(){
        alert("Please make sure you enter something before clicking the button");
      }
 
-
   }
 
 });
-
-function clearFullList(){
-  localStorage.removeItem("todoData");
-  location.reload();
-}
